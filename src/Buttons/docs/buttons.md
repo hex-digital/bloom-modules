@@ -11,8 +11,10 @@ The Buttons ACF block enables us to add groups of buttons to the Gutenberg edito
 - [ACF Block](#acf-block)
 - [Buttons Component](#buttons-component)
     - [Props](#buttons-props)
+    - [Usage](#buttons-usage)
 - [Button Component](#button-component)
     - [Props](#button-props)
+    - [Usage](#button-usage)
 - [Usage](#usage)
 
 ## ACF Block
