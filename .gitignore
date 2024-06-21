@@ -1,0 +1,14 @@
+/node_modules
+/vendor
+/public
+.vs-code/
+.env
+.budfiles
+npm-debug.log
+yarn-error.log
+*.code-workspace
+.idea
+.DS_Store
+/stubs
+theme.json
+.bax

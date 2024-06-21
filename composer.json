@@ -1,0 +1,17 @@
+{
+    "name": "hexdigital/bloom-modules",
+    "description": "Common modules for Bloom, Hex Digital's WordPress starter theme.",
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "HexDigital\\BloomModules\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Giuseppe",
+            "email": "g@hexdigital.com"
+        }
+    ],
+    "require": {}
+}

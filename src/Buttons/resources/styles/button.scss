@@ -1,0 +1,51 @@
+.c-btn {
+  display: inline-flex;
+  justify-content: center;
+  text-align: center;
+  border: 1px solid transparent;
+  font-family: theme('fontFamily.button');
+  padding: 11px 24px;
+}
+
+.c-btn--primary {
+  font-weight: theme('fontWeight.bold');
+  background-color: theme('colors.black');
+  color: theme('colors.white');
+
+  &:hover,
+  &:active {
+    background-color: theme('colors.success');
+    color: theme('colors.white');
+  }
+
+  &-disabled {
+    cursor: not-allowed;
+    background-color: theme('colors.grey');
+
+    &:hover {
+      background-color: theme('colors.white');
+    }
+  }
+}
+
+.c-btn--secondary {
+  font-weight: theme('fontWeight.bold');
+  background-color: transparent;
+  border: 1px solid theme('colors.black');
+  color: theme('colors.black');
+
+  &:hover,
+  &:active {
+    border-color: theme('colors.success');
+    color: theme('colors.success');
+  }
+
+  &-disabled {
+    cursor: not-allowed;
+    background-color: theme('colors.grey');
+
+    &:hover {
+      background-color: theme('colors.grey');
+    }
+  }
+}
