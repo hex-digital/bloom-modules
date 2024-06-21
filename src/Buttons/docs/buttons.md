@@ -87,24 +87,28 @@ The Button Component can be used within the Buttons Component or data can be pas
 
 #### Button Props
 
-- `$url`
-    - string
-    - required
+- `$button`
+    - array
+    - containg the following data:
 
-
-- `$text`
-    - string
-    - required
-
-
-- `$target`
-    - boolean
-    - optional
-
-
-- `$buttonStyle`
-    - string
-    - optional
+        - `url`
+            - string
+            - required
+        
+        
+        - `text`
+            - string
+            - required
+        
+        
+        - `target`
+            - boolean
+            - optional
+        
+        
+        - `buttonStyle`
+            - string
+            - optional
 
 #### Button Usage
 
