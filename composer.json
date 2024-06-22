@@ -1,5 +1,5 @@
 {
-    "name": "hexdigital/bloom-modules",
+    "name": "hex-digital/bloom-modules",
     "description": "Common modules for Bloom, Hex Digital's WordPress starter theme.",
     "type": "library",
     "autoload": {
