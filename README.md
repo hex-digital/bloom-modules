@@ -4,3 +4,5 @@
 
 <p>Each module should contain a `docs` directory, explaining how to use it and what features, if any, it adds to WordPress.</p>
 </div>
+
+⚡️
