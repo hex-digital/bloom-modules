@@ -148,14 +148,14 @@ class TemplateUpperCamelCase extends Block
      */
     public function fields()
     {
-        templateCamelCase = Builder::make('template_snake');
+        $templateVaribale = Builder::make('template_snake');
 
         /**
         * ACF Fields
         * https://github.com/Log1x/acf-builder-cheatsheet
         */
 
-        return templateCamelCase->build();
+        return $templateVaribale->build();
     }
 
 

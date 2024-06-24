@@ -4,7 +4,7 @@ namespace Bloom\Modules\TemplateUpperCamelCase\Livewire;
 
 use Livewire\Component;
 
-class Example extends Component
+class TemplateUpperCamelCase extends Component
 {
     // class properties
     public $example;
