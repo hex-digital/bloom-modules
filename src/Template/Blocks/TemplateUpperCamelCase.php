@@ -3,7 +3,7 @@
 namespace Bloom\Modules\TemplateUpperCamelCase\Blocks;
 
 
-use Log1x\AcfComposer\Block;
+use  arrayLog1x\AcfComposer\Block;
 use Log1x\AcfComposer\Builder;
 
 class TemplateUpperCamelCase extends Block
@@ -20,14 +20,14 @@ class TemplateUpperCamelCase extends Block
      *
      * @var string
      */
-    public $description = 'A simple TemplateName block.';
+    public string $description = 'A simple TemplateName block.';
 
     /**
      * The block category.
      *
      * @var string
      */
-    public $category = 'bloom';
+    public string $category = 'bloom';
 
     /**
      * The block icon.
@@ -45,56 +45,56 @@ class TemplateUpperCamelCase extends Block
      *
      * @var array
      */
-    public $keywords = [];
+    public array $keywords = [];
 
     /**
      * The block post type allow list.
      *
      * @var array
      */
-    public $post_types = [];
+    public array $post_types = [];
 
     /**
      * The parent block type allow list.
      *
      * @var array
      */
-    public $parent = [];
+    public array $parent = [];
 
     /**
      * The default block mode.
      *
      * @var string
      */
-    public $mode = 'preview';
+    public string $mode = 'preview';
 
     /**
      * The default block alignment.
      *
      * @var string
      */
-    public $align = '';
+    public string $align = '';
 
     /**
      * The default block text alignment.
      *
      * @var string
      */
-    public $align_text = '';
+    public string $align_text = '';
 
     /**
      * The default block content alignment.
      *
      * @var string
      */
-    public $align_content = '';
+    public string $align_content = '';
 
     /**
      * The supported block features.
      *
      * @var array
      */
-    public $supports = [
+    public array $supports = [
         'align' => true,
         'align_text' => false,
         'align_content' => false,
@@ -110,28 +110,28 @@ class TemplateUpperCamelCase extends Block
      *
      * @var array
      */
-    public $styles = [];
+    public array $styles = [];
 
     /**
      * The block preview example data.
      *
      * @var array
      */
-    public $example = [];
+    public array $example = [];
 
     /**
      * The block view.
      *
      * @var array
      */
-    public $view = 'TemplateUpperCamelCase.resources.views.blocks.template-kebab';
+    public string $view = 'TemplateUpperCamelCase.resources.views.blocks.template-kebab';
 
     /**
      * Data to be passed to the block before rendering.
      *
      * @return array
      */
-    public function with()
+    public function with(): array
     {
         return [
             'canRenderBlock' => $this->canRenderBlock(get_field('something')),
@@ -146,7 +146,7 @@ class TemplateUpperCamelCase extends Block
      *
      * @return array
      */
-    public function fields()
+    public function fields(): array
     {
         $templateVariable = Builder::make('template_snake');
 
@@ -164,7 +164,7 @@ class TemplateUpperCamelCase extends Block
      *
      * @return string
      */
-    public function canRenderBlock($field)
+    public function canRenderBlock($field): bool|string
     {
       if ($field) {
         return true;
@@ -180,7 +180,7 @@ class TemplateUpperCamelCase extends Block
      *
      * @return string
      */
-    public function generateClasses()
+    public function generateClasses(): string
     {
       $styles['heroTheme'] = 'u-theme--' . get_field('theme');
 
@@ -193,7 +193,8 @@ class TemplateUpperCamelCase extends Block
      *
      * @return string
      */
-    public function getBlockAnchor() {
+    public function getBlockAnchor(): string
+    {
         $anchor = '';
         if( isset($this->block->anchor ) ) {
             $anchor = $this->block->anchor;
@@ -207,7 +208,8 @@ class TemplateUpperCamelCase extends Block
      *
      * @return string
      */
-    public function getBlockClasses() {
+    public function getBlockClasses(): string
+    {
         return $this->classes;
     }
 

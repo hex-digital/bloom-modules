@@ -35,7 +35,7 @@ class TemplateUpperCamelCase extends Component
      *
      * @return bool
      */
-    private function canOutputComponent()
+    private function canOutputComponent(): array|string
     {
       // Check the required data exists
       return $this->example;

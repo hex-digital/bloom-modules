@@ -13,7 +13,7 @@ class TemplateUpperCamelCase extends Composer
      *
      * @var array
      */
-    protected static $views = [
+    protected static array $views = [
       //
     ];
 
@@ -22,7 +22,7 @@ class TemplateUpperCamelCase extends Composer
      *
      * @return array
      */
-    public function with()
+    public function with(): array
     {
         return [
           'variable' => 'data'
