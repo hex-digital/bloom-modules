@@ -9,7 +9,7 @@ use Illuminate\View\Component;
 class TemplateUpperCamelCase extends Component
 {
     // class properties
-    public $example
+    public $example;
     /**
      * Create a new component instance.
      */
