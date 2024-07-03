@@ -1,5 +1,5 @@
 <a
-  class="c-btn {!! esc_html($buttonStyle) !!}"
+  {{ $attributes->merge(['class' => 'c-btn ' . $buttonStyle]) }}
   href="{!! esc_url($url) !!}"
   {!! esc_html($target) !!}
 >
