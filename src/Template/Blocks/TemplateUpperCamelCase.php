@@ -3,7 +3,7 @@
 namespace Bloom\Modules\TemplateUpperCamelCase\Blocks;
 
 
-use  arrayLog1x\AcfComposer\Block;
+use Log1x\AcfComposer\Block;
 use Log1x\AcfComposer\Builder;
 
 class TemplateUpperCamelCase extends Block
