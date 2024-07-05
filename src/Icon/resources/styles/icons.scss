@@ -1,0 +1,17 @@
+.c-icon {
+  &--up {
+    tranform: rotate(0);
+  }
+
+  &--right {
+    transform: rotate(45deg);
+  }
+
+  &--down {
+    transform: rotate(180deg);
+  }
+
+  &--left {
+    transform: rotate(270deg);
+  }
+}
