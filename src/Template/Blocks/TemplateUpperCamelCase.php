@@ -20,14 +20,14 @@ class TemplateUpperCamelCase extends Block
      *
      * @var string
      */
-    public string $description = 'A simple TemplateName block.';
+    public $description = 'A simple TemplateName block.';
 
     /**
      * The block category.
      *
      * @var string
      */
-    public string $category = 'bloom';
+    public $category = 'bloom';
 
     /**
      * The block icon.
@@ -45,56 +45,56 @@ class TemplateUpperCamelCase extends Block
      *
      * @var array
      */
-    public array $keywords = [];
+    public $keywords = [];
 
     /**
      * The block post type allow list.
      *
      * @var array
      */
-    public array $post_types = [];
+    public $post_types = [];
 
     /**
      * The parent block type allow list.
      *
      * @var array
      */
-    public array $parent = [];
+    public $parent = [];
 
     /**
      * The default block mode.
      *
      * @var string
      */
-    public string $mode = 'preview';
+    public $mode = 'preview';
 
     /**
      * The default block alignment.
      *
      * @var string
      */
-    public string $align = '';
+    public $align = '';
 
     /**
      * The default block text alignment.
      *
      * @var string
      */
-    public string $align_text = '';
+    public $align_text = '';
 
     /**
      * The default block content alignment.
      *
      * @var string
      */
-    public string $align_content = '';
+    public $align_content = '';
 
     /**
      * The supported block features.
      *
      * @var array
      */
-    public array $supports = [
+    public $supports = [
         'align' => true,
         'align_text' => false,
         'align_content' => false,
@@ -110,21 +110,21 @@ class TemplateUpperCamelCase extends Block
      *
      * @var array
      */
-    public array $styles = [];
+    public $styles = [];
 
     /**
      * The block preview example data.
      *
      * @var array
      */
-    public array $example = [];
+    public $example = [];
 
     /**
      * The block view.
      *
      * @var array
      */
-    public string $view = 'TemplateUpperCamelCase.resources.views.blocks.template-kebab';
+    public $view = 'TemplateUpperCamelCase.resources.views.blocks.template-kebab';
 
     /**
      * Data to be passed to the block before rendering.
