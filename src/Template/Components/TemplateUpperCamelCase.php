@@ -27,7 +27,7 @@ class TemplateUpperCamelCase extends Component
             return '';
         }
 
-        return $this->view('TemplateUpperCamelCase.resources.views.components.template-kebab]');
+        return $this->view('TemplateUpperCamelCase.resources.views.components.template-kebab');
     }
 
     /**
