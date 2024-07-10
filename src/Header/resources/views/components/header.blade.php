@@ -1,4 +1,4 @@
-<header class="c-header c-header--fixed">
+<header class="c-header">
   <div class="o-wrapper o-wrapper--lg">
     <div class="c-header__inner">
       <x-bloom-header.logo />
