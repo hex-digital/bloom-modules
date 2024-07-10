@@ -19,19 +19,20 @@ class Header {
     // Listen to mouseover or key.enter events on Main nav items. If item has subnav, then open it.
     navItems.forEach((navItem) => {
       navItem.addEventListener('mouseover', () => {
-        //As user is using mouse, assuming accesibility features aren't needed so disable
+        //As user is using mouse, assuming accesibility features aren't required, so disable
         this.state.accessibleMode = false;
         this.setActiveNav(navItem);
       });
       navItem.addEventListener('keydown', (event) => {
         if (event.key === 'Enter') {
-          //As user is using keyboard, assuming accesibility features required needed so enable
+          //As user is using keyboard, assuming accessibility features are required, so enable
           this.state.accessibleMode = true;
           this.setActiveNav(navItem, true);
         }
       });
     });
 
+    // Closes the subnav if open and the user presses the escape key
     this.subnavContainer.addEventListener('keydown', (event) => {
       if (event.key === 'Escape') {
         this.header.querySelector(`[data-nav-id="${this.state.activeNav}"] button`).focus();
@@ -40,6 +41,7 @@ class Header {
       }
     })
 
+    // Closes the subnav if user's mouse leaves the header.
     this.subnavContainer.addEventListener('mouseleave', (event) => {
       if (event.target.dataset.hasSubnav && event.target.closest('.c-header')) return;
 
