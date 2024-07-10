@@ -25,7 +25,7 @@ class Header {
       });
       navItem.addEventListener('keydown', (event) => {
         if (event.key === 'Enter') {
-          //As user is using keyboard, assuming accessibility features are required, so enable
+          //As user is using keyboard, assuming accesibility features are required, so enable
           this.state.accessibleMode = true;
           this.setActiveNav(navItem, true);
         }
