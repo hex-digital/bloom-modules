@@ -39,6 +39,13 @@ class Header {
         this.toggleSubnav('close');
       }
     })
+
+    this.subnavContainer.addEventListener('mouseleave', (event) => {
+      if (event.target.dataset.hasSubnav && event.target.closest('.c-header')) return;
+
+      this.handleActiveNav('close');
+      this.toggleSubnav('close');
+    })
   }
 
   setActiveNav(navItem) {
@@ -113,7 +120,7 @@ class Header {
     }
   }
 
-  // finds the element with the active class (passed as parameter), removes the active class and toggles the aria-expanded attribute if required.
+  // finds the element with the active class passed as the parameter, removes the active class and toggles the aria-expanded attribute if required.
   deactivateElement(element) {
     const targetElement = this.header.querySelector(`.${element}`)
 
