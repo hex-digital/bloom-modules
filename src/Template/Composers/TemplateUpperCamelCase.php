@@ -1,5 +1,4 @@
 <?php
-// [MODULE] = E.g. Buttons - The name of your module (due to PSR-4), this would be the same as your MODUEL_DIR.
 
 namespace Bloom\Modules\TemplateUpperCamelCase\Composers;
 
@@ -13,7 +12,7 @@ class TemplateUpperCamelCase extends Composer
      *
      * @var array
      */
-    protected static array $views = [
+    protected static $views = [
       //
     ];
 
