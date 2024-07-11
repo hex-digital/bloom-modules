@@ -74,7 +74,7 @@ class Header {
       this.subnavContainer.classList.add('c-header__subnav-container--active');
       this.subnavContainer.style.height = this.header.querySelector(`[data-subnav-id="${this.state.activeNav}"]`) ? `${this.header.querySelector(`[data-subnav-id="${this.state.activeNav}"]`).offsetHeight}px` : 0;
 
-      const subnavItem = this.header.querySelector(`[data-subnav-id="${this.state.activeNav}"]`);
+      const subnavItem= this.header.querySelector(`[data-subnav-id="${this.state.activeNav}"]`);
       subnavItem.setAttribute('aria-expanded', 'true');
       subnavItem.classList.add('c-header__subnav--active');
 
@@ -116,17 +116,19 @@ class Header {
       const navItem = this.header.querySelector(`[data-nav-id="${this.state.activeNav}"]`);
       navItem.setAttribute('aria-expanded', 'true');
       navItem.classList.add('c-header__nav-item--active');
+      this.header.classList.add('c-header--active');
     }
 
     if (state === 'close') {
       // Remove currently active nav item
+      this.deactivateElement('c-header--active')
       this.deactivateElement('c-header__nav-item--active');
     }
   }
 
   // Finds the element with the active class passed as the parameter, removes the active class and toggles the aria-expanded attribute if required.
   deactivateElement(element) {
-    const targetElement = this.header.querySelector(`.${element}`)
+    const targetElement = document.querySelector(`.${element}`)
 
     if (targetElement) {
       if (targetElement.hasAttribute('aria-expanded')) {
