@@ -12,6 +12,7 @@
 
 .c-header__inner {
   align-items: center;
+  //border-radius: theme('spacing.12');
   background-color: theme('colors.neutral-10');
   display: flex;
   height: var(--headerHeight);
@@ -21,6 +22,14 @@
 
   .c-header--fixed > & {
     position: fixed;
+  }
+}
+
+.c-header__nav {
+  display: none;
+
+  @screen tablet-wide {
+    display: flex;
   }
 }
 
@@ -46,12 +55,17 @@
 }
 
 .c-header__subnav-container {
+  display: none;
   height: 0;
   overflow: hidden;
   transition: height 0.3s ease-in-out;
 
   &--active {
     background-color: white;
+  }
+
+  @screen desk {
+    display: flex;
   }
 }
 
@@ -71,4 +85,17 @@
   &--active {
     opacity: 1;
   }
+}
+
+.c-header__search {
+  display: none;
+
+  @screen desk {
+    display: flex;
+  }
+}
+
+.c-header__logo {
+  max-width: 190px;
+  width: 100%;
 }

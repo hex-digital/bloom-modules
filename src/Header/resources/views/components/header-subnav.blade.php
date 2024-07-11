@@ -1,6 +1,5 @@
-<div
-  class="c-header__subnav-container u-absolute u-top-full u-left-0 u-right-0 u-mt-4 u-w-full u-bg-white"
->
+<div class="u-absolute u-left-0 u-w-full u-top-full u-h-4"></div>
+<div class="c-header__subnav-container u-absolute u-top-full u-left-0 u-mt-4 u-right-0 u-w-full u-bg-white">
   @foreach($mainNav as $navItem)
     @if($navItem->children)
       <div
@@ -22,3 +21,4 @@
     @endif
   @endforeach
 </div>
+
