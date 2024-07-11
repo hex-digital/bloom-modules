@@ -43,7 +43,6 @@ class Header {
 
     // Closes the subnav if user's mouse leaves the header.
     this.header.addEventListener('mouseleave', (event) => {
-      console.log(event.target);
       if (!event.target.closest('.c-header')) return;
       if (event.target.dataset.hasSubnav) return;
 
