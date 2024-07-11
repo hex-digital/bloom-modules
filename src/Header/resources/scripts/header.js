@@ -74,7 +74,7 @@ class Header {
       this.subnavContainer.classList.add('c-header__subnav-container--active');
       this.subnavContainer.style.height = this.header.querySelector(`[data-subnav-id="${this.state.activeNav}"]`) ? `${this.header.querySelector(`[data-subnav-id="${this.state.activeNav}"]`).offsetHeight}px` : 0;
 
-      const subnavItem= this.header.querySelector(`[data-subnav-id="${this.state.activeNav}"]`);
+      const subnavItem = this.header.querySelector(`[data-subnav-id="${this.state.activeNav}"]`);
       subnavItem.setAttribute('aria-expanded', 'true');
       subnavItem.classList.add('c-header__subnav--active');
 
