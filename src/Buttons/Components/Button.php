@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Bloom\Modules\Buttons\Components;
+namespace Bloom\Components\Buttons;
 
 use Roots\Acorn\View\Component;
 

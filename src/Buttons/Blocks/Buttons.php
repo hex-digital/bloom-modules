@@ -125,7 +125,7 @@ class Buttons extends Block
      *
      * @var array
      */
-    public $view = 'Buttons.resources.views.blocks.buttons';
+    public $view = 'Blocks.Buttons.buttons';
 
     /**
      * Data to be passed to the block before rendering.
