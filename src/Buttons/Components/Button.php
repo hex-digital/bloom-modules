@@ -54,7 +54,7 @@ class Button extends Component
             return '';
         }
 
-        return $this->view('Buttons.resources.views.components.button');
+        return $this->view('Components.Buttons.button');
     }
 
     /**
