@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Bloom\Modules\Buttons\Blocks;
+namespace Bloom\Blocks\Buttons;
 
 use Log1x\AcfComposer\Block;
 use Log1x\AcfComposer\Builder;

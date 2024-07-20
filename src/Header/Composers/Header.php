@@ -1,6 +1,6 @@
 <?php
 
-namespace Bloom\Modules\Header\Composers;
+namespace Bloom\Composers\Header;
 
 use Roots\Acorn\View\Composer;
 use Log1x\Navi\Navi;
