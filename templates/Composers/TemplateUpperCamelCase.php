@@ -1,6 +1,6 @@
 <?php
 
-namespace Bloom\Modules\TemplateUpperCamelCase\Composers;
+namespace Bloom\Composers\TemplateUpperCamelCase;
 
 use Roots\Acorn\View\Composer;
 
@@ -12,9 +12,7 @@ class TemplateUpperCamelCase extends Composer
      *
      * @var array
      */
-    protected static $views = [
-      //
-    ];
+    protected static $views = [];
 
     /**
      * Data to be passed to view before rendering.
