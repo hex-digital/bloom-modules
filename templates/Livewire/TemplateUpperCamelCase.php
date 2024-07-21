@@ -1,11 +1,10 @@
 <?php
 
-namespace Bloom\Modules\TemplateUpperCamelCase\Livewire;
+namespace Bloom\Livewire\TemplateUpperCamelCase;
 
 use Livewire\Component;
 use Closure;
 use Illuminate\Contracts\View\View;
-use Illuminate\View\Component;
 
 class TemplateUpperCamelCase extends Component
 {
@@ -16,6 +15,6 @@ class TemplateUpperCamelCase extends Component
     {
         $example = $this->example;
 
-        return view('TemplateUpperCamelCase.resources.views.livewire.listing', compact(['example']));
+        return view('Livewire.TemplateUpperCamelCase.template-kebab', compact(['example']));
     }
 }

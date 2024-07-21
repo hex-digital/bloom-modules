@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Bloom\Modules\BaseImage\Components;
+namespace Bloom\Components\BaseImage;
 
 use Roots\Acorn\View\Component;
 

@@ -6,7 +6,7 @@
 // [MODULE_BLADE] = E.g. buttons to represent the file buttons.blade.php - This is the module name but lowercase.
 // [MODULE_SNAKE] = E.g buttons_group - This is the snake_case of the Module Title.
 
-namespace Bloom\Modules\BaseSpacer\Blocks;
+namespace Bloom\Blocks\BaseSpacer;
 
 
 use Log1x\AcfComposer\Block;

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Bloom\Modules\Buttons\Blocks;
+namespace Bloom\Blocks\Buttons;
 
 use Log1x\AcfComposer\Block;
 use Log1x\AcfComposer\Builder;
@@ -125,7 +125,7 @@ class Buttons extends Block
      *
      * @var array
      */
-    public $view = 'Buttons.resources.views.blocks.buttons';
+    public $view = 'Blocks.Buttons.buttons';
 
     /**
      * Data to be passed to the block before rendering.

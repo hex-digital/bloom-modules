@@ -1,6 +1,6 @@
 <?php
 
-namespace Bloom\Modules\TemplateUpperCamelCase\Blocks;
+namespace Bloom\Blocks\TemplateUpperCamelCase;
 
 
 use Log1x\AcfComposer\Block;
@@ -124,7 +124,7 @@ class TemplateUpperCamelCase extends Block
      *
      * @var array
      */
-    public $view = 'TemplateUpperCamelCase.resources.views.blocks.template-kebab';
+    public $view = 'Blocks.TemplateUpperCamelCase.template-kebab';
 
     /**
      * Data to be passed to the block before rendering.

@@ -1,6 +1,6 @@
 <?php
 
-namespace Bloom\Modules\TemplateUpperCamelCase\Components;
+namespace Bloom\Components\TemplateUpperCamelCase;
 
 use Closure;
 use Illuminate\Contracts\View\View;
@@ -27,7 +27,7 @@ class TemplateUpperCamelCase extends Component
             return '';
         }
 
-        return $this->view('TemplateUpperCamelCase.resources.views.components.template-kebab');
+        return $this->view('Components.TemplateUpperCamelCase.template-kebab');
     }
 
     /**
