@@ -1,25 +1,25 @@
 <?php
 
-namespace Bloom\Blocks\HeadingText;
+namespace Bloom\Blocks\Tag;
 
 use Log1x\AcfComposer\Block;
 use Log1x\AcfComposer\Builder;
 
-class HeadingText extends Block
+class Tag extends Block
 {
     /**
      * The block name.
      *
      * @var string
      */
-    public $name = 'Heading Text';
+    public $name = 'Tag';
 
     /**
      * The block description.
      *
      * @var string
      */
-    public $description = 'A simple Heading Text block.';
+    public $description = 'A simple Tag block.';
 
     /**
      * The block category.
@@ -98,7 +98,7 @@ class HeadingText extends Block
         'align_text' => false,
         'align_content' => false,
         'full_height' => false,
-        'anchor' => true,
+        'anchor' => false,
         'mode' => true,
         'multiple' => true,
         'jsx' => true,
@@ -123,54 +123,47 @@ class HeadingText extends Block
      *
      * @var array
      */
-    public $view = 'Blocks.HeadingText.heading-text';
+    public $view = 'Blocks.Tag.tag';
 
     /**
      * Data to be passed to the block before rendering.
+     *
+     * @return array
      */
-    public function with(): array
+    public function with()
     {
         return [
-            'canRenderBlock' => $this->canRenderBlock(get_field('heading')),
-            'heading' => get_field('heading'),
-            'text' => get_field('text'),
+            'blockClasses' => $this->getBlockClasses(),
+            'text' => (bool) get_field('text') ? get_field('text') : 'Tag goes here',
         ];
     }
 
     /**
      * The block field group.
+     *
+     * @return array
      */
-    public function fields(): array
+    public function fields()
     {
-        $headingText = Builder::make('heading_text');
+        $tag = Builder::make('tag');
 
-        $headingText
-            ->addText('heading', [
-                'label' => 'Heading',
-                'instructions' => 'Add Heading text',
-            ]);
-
-        $headingText
-            ->addTextarea('text', [
+        $tag
+            ->addText('text', [
                 'label' => 'Text',
-                'instructions' => 'Add paragraph text',
+                'instructions' => 'Add tag text',
             ]);
 
-        return $headingText->build();
+        return $tag->build();
     }
 
     /**
-     * determines whether a block can be rendered or not
+     * Return the classes added via CMS
      *
      * @return string
      */
-    public function canRenderBlock($heading): bool|string
+    public function getBlockClasses()
     {
-        if ($heading) {
-            return true;
-        }
-
-        return false;
+        return $this->classes;
     }
 
     /**
