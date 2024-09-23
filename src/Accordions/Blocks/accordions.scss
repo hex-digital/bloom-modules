@@ -1,0 +1,15 @@
+.c-accordions {
+  max-width: 800px;
+
+  .c-innerblocks {
+    gap: 0;
+  }
+
+  .c-accordion__header {
+    padding: 1rem 0;
+  }
+
+  .c-accordion__title {
+    @include h5;
+  }
+}
