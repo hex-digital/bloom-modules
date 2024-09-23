@@ -9,6 +9,7 @@
     title="{!! esc_attr($title) !!}"
     srcset="{!! esc_attr($srcset) !!}"
     sizes="{!! esc_attr($srcset_sizes) !!}"
+    loading="lazy"
   />
 
 @if ($caption)
