@@ -1,0 +1,13 @@
+.c-full-width-image-block {
+  height: 240px;
+
+  @screen desk {
+    height: 540px;
+  }
+
+  & > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
