@@ -1,0 +1,9 @@
+.pagination-bubble,
+.c-pagination--bubble {
+
+  .current,
+  .c-pagination__page--current {
+    border: 1px solid theme('colors.black');
+    border-radius: 100px;
+  }
+}

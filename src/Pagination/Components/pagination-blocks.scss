@@ -1,0 +1,19 @@
+.pagination-blocks,
+.c-pagination--blocks {
+
+  .current,
+  .c-pagination__page--current {
+    background-color: theme('colors.grey');
+    color: theme('colors.black');
+  }
+
+  .c-pagination__page {
+    border-radius: 4px;
+    &:hover,
+    &:active,
+    &:focus {
+      background-color: theme('colors.grey');
+      color: theme('colors.black');
+    }
+  }
+}
