@@ -75,7 +75,7 @@
 
   .wp-block-heading {
     text-align: left;
-    color: theme('colors.black');
+    color: theme('colors.white');
 
     @screen desk {
       text-align: center;
@@ -85,7 +85,7 @@
   p {
     display: flex;
     text-align: left;
-    color: theme('colors.black');
+    color: theme('colors.white');
 
     @screen desk {
       text-align: center;
@@ -101,7 +101,7 @@
   .c-tag,
   .wp-block-heading,
   p {
-    color: theme('colors.black');
+    color: theme('colors.white');
   }
 }
 
