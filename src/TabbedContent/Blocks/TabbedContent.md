@@ -12,6 +12,8 @@ yarn add alpinejs
 
 ## Module notes
 
+IMPORTANT - Uncomment Tabbed Content Post Type in poet.php and PostType.php to use tabbed content. 
+
 ### Alpine.js
 The module is initalised as an Alpine component at the root of the module, within `tabbed-content.blade.php`. The module displays the active `tab` and `tabpanel` by checking what has been set to the `activePage` data. 
 
