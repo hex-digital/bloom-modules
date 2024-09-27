@@ -1,0 +1,96 @@
+.c-hero {
+  align-items: center;
+  color: theme('colors.white');
+  display: flex;
+  gap: theme('spacing.12');
+  position: relative;
+  margin-top: calc((var(--headerHeight) + var(--headerMargin)) * -1);
+  width: 100%;
+  height: auto;
+  padding-top: calc(var(--headerHeight) + var(--headerMargin) + theme('spacing.72'));
+  padding-bottom: theme('spacing.96');
+  overflow: hidden;
+
+  @screen desk {
+    height: 800px;
+    justify-content: center;
+    padding: 0;
+  }
+
+  .c-buttons--cluster {
+    margin-top: 12px;
+
+    @screen desk {
+      justify-content: center;
+    }
+  }
+
+  p {
+    color: inherit;
+  }
+}
+
+.c-hero__embed {
+  @include transition(opacity, 500ms);
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  opacity: 0;
+
+  iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    object-fit: cover;
+    transform: scale(1.5);
+  }
+
+  &--visible {
+    display: none;
+
+    @screen tablet-wide {
+      display: block;
+      transition-delay: 1s;
+      opacity: 1;
+    }
+  }
+}
+
+
+
+.c-hero__image {
+  height: 100%;
+  left: 0;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.c-hero__content {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 1010px;
+  position: relative;
+
+  @screen desk {
+    text-align: center;
+  }
+}
+
+.c-hero__innerblocks {
+  display: flex;
+  flex-direction: column;
+  gap: theme('spacing.12');
+}
+
+.c-hero p {
+  @include body-large;
+}

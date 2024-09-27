@@ -1,25 +1,25 @@
 <?php
 
-namespace Bloom\Blocks\HeadingText;
+namespace Bloom\Blocks\BaseOEmbed;
 
 use Log1x\AcfComposer\Block;
 use Log1x\AcfComposer\Builder;
 
-class HeadingText extends Block
+class BaseOEmbed extends Block
 {
     /**
      * The block name.
      *
      * @var string
      */
-    public $name = 'Heading Text';
+    public $name = 'Base Oembed';
 
     /**
      * The block description.
      *
      * @var string
      */
-    public $description = 'A simple Heading Text block.';
+    public $description = 'A simple Base Oembed block.';
 
     /**
      * The block category.
@@ -123,17 +123,20 @@ class HeadingText extends Block
      *
      * @var array
      */
-    public $view = 'Blocks.HeadingText.heading-text';
+    public $view = 'Blocks.BaseOEmbed.base-oembed';
 
     /**
      * Data to be passed to the block before rendering.
      */
     public function with(): array
     {
+        $baseOembed = get_field('base_oembed');
+
         return [
-            'canRenderBlock' => $this->canRenderBlock(get_field('heading')),
-            'heading' => get_field('heading'),
-            'text' => get_field('text'),
+            'canRenderBlock' => $this->canRenderBlock($baseOembed),
+            'blockClasses' => $this->getBlockClasses(),
+            'blockAnchor' => $this->getBlockAnchor(),
+            'baseOembed' => $baseOembed,
         ];
     }
 
@@ -142,21 +145,27 @@ class HeadingText extends Block
      */
     public function fields(): array
     {
-        $headingText = Builder::make('heading_text');
+        $baseOembed = Builder::make('base_oembed');
 
-        $headingText
+        $baseOembedRepeater = $baseOembed
+            ->addRepeater('base_oembed', [
+                'min' => 1,
+                'max' => 3,
+                'layout' => 'block',
+            ]);
+
+        $baseOembedRepeater
+            ->addOembed('oembed', [
+                'label' => 'Video',
+                'instructions' => 'Add a video URL from YouTube or Vimeo',
+            ])
+
             ->addText('heading', [
-                'label' => 'Heading',
-                'instructions' => 'Add Heading text',
+                'label' => 'Video Heading',
+                'instructions' => 'Heading for video',
             ]);
 
-        $headingText
-            ->addTextarea('text', [
-                'label' => 'Text',
-                'instructions' => 'Add paragraph text',
-            ]);
-
-        return $headingText->build();
+        return $baseOembed->build();
     }
 
     /**
@@ -164,13 +173,34 @@ class HeadingText extends Block
      *
      * @return string
      */
-    public function canRenderBlock($heading): bool|string
+    public function canRenderBlock($baseOembed): bool|string
     {
-        if ($heading) {
+        if ($baseOembed) {
             return true;
         }
 
         return false;
+    }
+
+    /**
+     * Return the Anchor
+     */
+    public function getBlockAnchor(): string
+    {
+        $anchor = '';
+        if (isset($this->block->anchor)) {
+            $anchor = $this->block->anchor;
+        }
+
+        return $anchor;
+    }
+
+    /**
+     * Return the classes added via CMS
+     */
+    public function getBlockClasses(): string
+    {
+        return $this->classes;
     }
 
     /**

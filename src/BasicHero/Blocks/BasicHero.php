@@ -1,25 +1,26 @@
 <?php
 
-namespace Bloom\Blocks\HeadingText;
+namespace Bloom\Blocks\BasicHero;
 
+use Bloom\Blocks\BaseImage\BaseImagePartial;
 use Log1x\AcfComposer\Block;
 use Log1x\AcfComposer\Builder;
 
-class HeadingText extends Block
+class BasicHero extends Block
 {
     /**
      * The block name.
      *
      * @var string
      */
-    public $name = 'Heading Text';
+    public $name = 'Basic Hero';
 
     /**
      * The block description.
      *
      * @var string
      */
-    public $description = 'A simple Heading Text block.';
+    public $description = 'A simple Basic Hero block.';
 
     /**
      * The block category.
@@ -123,7 +124,7 @@ class HeadingText extends Block
      *
      * @var array
      */
-    public $view = 'Blocks.HeadingText.heading-text';
+    public $view = 'Blocks.BasicHero.basic-hero';
 
     /**
      * Data to be passed to the block before rendering.
@@ -131,9 +132,8 @@ class HeadingText extends Block
     public function with(): array
     {
         return [
-            'canRenderBlock' => $this->canRenderBlock(get_field('heading')),
-            'heading' => get_field('heading'),
-            'text' => get_field('text'),
+            'blockAnchor' => $this->getBlockAnchor(),
+            'image' => get_field('image'),
         ];
     }
 
@@ -142,35 +142,25 @@ class HeadingText extends Block
      */
     public function fields(): array
     {
-        $headingText = Builder::make('heading_text');
+        $basicHero = Builder::make('basic_hero');
 
-        $headingText
-            ->addText('heading', [
-                'label' => 'Heading',
-                'instructions' => 'Add Heading text',
-            ]);
+        $basicHero
+            ->addPartial(BaseImagePartial::class);
 
-        $headingText
-            ->addTextarea('text', [
-                'label' => 'Text',
-                'instructions' => 'Add paragraph text',
-            ]);
-
-        return $headingText->build();
+        return $basicHero->build();
     }
 
     /**
-     * determines whether a block can be rendered or not
-     *
-     * @return string
+     * Return the Anchor
      */
-    public function canRenderBlock($heading): bool|string
+    public function getBlockAnchor(): string
     {
-        if ($heading) {
-            return true;
+        $anchor = '';
+        if (isset($this->block->anchor)) {
+            $anchor = $this->block->anchor;
         }
 
-        return false;
+        return $anchor;
     }
 
     /**

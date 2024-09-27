@@ -1,25 +1,25 @@
 <?php
 
-namespace Bloom\Blocks\HeadingText;
+namespace Bloom\Blocks\BaseImage;
 
 use Log1x\AcfComposer\Block;
 use Log1x\AcfComposer\Builder;
 
-class HeadingText extends Block
+class BaseImage extends Block
 {
     /**
      * The block name.
      *
      * @var string
      */
-    public $name = 'Heading Text';
+    public $name = 'Base Image';
 
     /**
      * The block description.
      *
      * @var string
      */
-    public $description = 'A simple Heading Text block.';
+    public $description = 'A simple Base Image block.';
 
     /**
      * The block category.
@@ -123,17 +123,19 @@ class HeadingText extends Block
      *
      * @var array
      */
-    public $view = 'Blocks.HeadingText.heading-text';
+    public $view = 'Blocks.BaseImage.base-image';
 
     /**
      * Data to be passed to the block before rendering.
      */
     public function with(): array
     {
+        $baseImage = get_field('image');
+
         return [
-            'canRenderBlock' => $this->canRenderBlock(get_field('heading')),
-            'heading' => get_field('heading'),
-            'text' => get_field('text'),
+            'canRenderBlock' => $this->canRenderBlock($baseImage),
+            'baseImage' => $baseImage,
+            'alt' => get_field('alt'),
         ];
     }
 
@@ -142,21 +144,11 @@ class HeadingText extends Block
      */
     public function fields(): array
     {
-        $headingText = Builder::make('heading_text');
+        $baseImage = Builder::make('base_image');
 
-        $headingText
-            ->addText('heading', [
-                'label' => 'Heading',
-                'instructions' => 'Add Heading text',
-            ]);
+        $baseImage->addPartial(BaseImagePartial::class);
 
-        $headingText
-            ->addTextarea('text', [
-                'label' => 'Text',
-                'instructions' => 'Add paragraph text',
-            ]);
-
-        return $headingText->build();
+        return $baseImage->build();
     }
 
     /**
@@ -164,9 +156,9 @@ class HeadingText extends Block
      *
      * @return string
      */
-    public function canRenderBlock($heading): bool|string
+    public function canRenderBlock($baseImage): bool|string
     {
-        if ($heading) {
+        if ($baseImage) {
             return true;
         }
 

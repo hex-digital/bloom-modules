@@ -1,25 +1,25 @@
 <?php
 
-namespace Bloom\Blocks\HeadingText;
+namespace Bloom\Blocks\Accordions;
 
 use Log1x\AcfComposer\Block;
 use Log1x\AcfComposer\Builder;
 
-class HeadingText extends Block
+class Accordions extends Block
 {
     /**
      * The block name.
      *
      * @var string
      */
-    public $name = 'Heading Text';
+    public $name = 'Accordions';
 
     /**
      * The block description.
      *
      * @var string
      */
-    public $description = 'A simple Heading Text block.';
+    public $description = 'A simple Accordions block.';
 
     /**
      * The block category.
@@ -123,7 +123,7 @@ class HeadingText extends Block
      *
      * @var array
      */
-    public $view = 'Blocks.HeadingText.heading-text';
+    public $view = 'Blocks.Accordions.accordions';
 
     /**
      * Data to be passed to the block before rendering.
@@ -131,9 +131,11 @@ class HeadingText extends Block
     public function with(): array
     {
         return [
-            'canRenderBlock' => $this->canRenderBlock(get_field('heading')),
-            'heading' => get_field('heading'),
-            'text' => get_field('text'),
+            'blockAnchor' => $this->getBlockAnchor(),
+
+            'allowedBlocks' => esc_attr(wp_json_encode([
+                'acf/accordion',
+            ])),
         ];
     }
 
@@ -142,35 +144,22 @@ class HeadingText extends Block
      */
     public function fields(): array
     {
-        $headingText = Builder::make('heading_text');
+        $accordions = Builder::make('accordions');
 
-        $headingText
-            ->addText('heading', [
-                'label' => 'Heading',
-                'instructions' => 'Add Heading text',
-            ]);
-
-        $headingText
-            ->addTextarea('text', [
-                'label' => 'Text',
-                'instructions' => 'Add paragraph text',
-            ]);
-
-        return $headingText->build();
+        return $accordions->build();
     }
 
     /**
-     * determines whether a block can be rendered or not
-     *
-     * @return string
+     * Return the Anchor
      */
-    public function canRenderBlock($heading): bool|string
+    public function getBlockAnchor(): string
     {
-        if ($heading) {
-            return true;
+        $anchor = '';
+        if (isset($this->block->anchor)) {
+            $anchor = $this->block->anchor;
         }
 
-        return false;
+        return $anchor;
     }
 
     /**

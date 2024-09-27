@@ -1,25 +1,25 @@
 <?php
 
-namespace Bloom\Blocks\HeadingText;
+namespace Bloom\Blocks\StatsRow;
 
 use Log1x\AcfComposer\Block;
 use Log1x\AcfComposer\Builder;
 
-class HeadingText extends Block
+class StatsRow extends Block
 {
     /**
      * The block name.
      *
      * @var string
      */
-    public $name = 'Heading Text';
+    public $name = 'Stats Row';
 
     /**
      * The block description.
      *
      * @var string
      */
-    public $description = 'A simple Heading Text block.';
+    public $description = 'A simple Stats Row block.';
 
     /**
      * The block category.
@@ -123,17 +123,18 @@ class HeadingText extends Block
      *
      * @var array
      */
-    public $view = 'Blocks.HeadingText.heading-text';
+    public $view = 'Blocks.StatsRow.stats-row';
 
     /**
      * Data to be passed to the block before rendering.
      */
     public function with(): array
     {
+        $statsRow = get_field('statistic');
+
         return [
-            'canRenderBlock' => $this->canRenderBlock(get_field('heading')),
-            'heading' => get_field('heading'),
-            'text' => get_field('text'),
+            'canRenderBlock' => $this->canRenderBlock($statsRow),
+            'statsRow' => $statsRow,
         ];
     }
 
@@ -142,35 +143,40 @@ class HeadingText extends Block
      */
     public function fields(): array
     {
-        $headingText = Builder::make('heading_text');
+        $statsRow = Builder::make('stats_row');
 
-        $headingText
-            ->addText('heading', [
-                'label' => 'Heading',
-                'instructions' => 'Add Heading text',
+        $statsRow
+            ->addRepeater('statistic', [
+                'label' => 'Statistic',
+                'instructions' => 'Add statistic',
+                'button_label' => 'Add Stat',
+            ])
+            ->addText('prefix', [
+                'label' => 'Prefix',
+                'instructions' => 'Add prefix',
+            ])
+            ->addText('stat', [
+                'label' => 'Stat',
+                'instructions' => 'Add stat',
+            ])
+            ->addText('suffix', [
+                'label' => 'Suffix',
+                'instructions' => 'Add suffix',
+            ])
+            ->addText('description', [
+                'label' => 'Description',
+                'instructions' => 'Add description',
             ]);
 
-        $headingText
-            ->addTextarea('text', [
-                'label' => 'Text',
-                'instructions' => 'Add paragraph text',
-            ]);
-
-        return $headingText->build();
+        return $statsRow->build();
     }
 
     /**
      * determines whether a block can be rendered or not
-     *
-     * @return string
      */
-    public function canRenderBlock($heading): bool|string
+    public function canRenderBlock($statsRow): bool
     {
-        if ($heading) {
-            return true;
-        }
-
-        return false;
+        return (bool) $statsRow;
     }
 
     /**

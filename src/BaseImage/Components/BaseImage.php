@@ -30,7 +30,7 @@ class BaseImage extends Component
 
     public $imageType;
 
-    public function __construct($id, $maxSize = 'large', $alt = true, $caption = false, $class = null, $imageType = 'default')
+    public function __construct($id, $maxSize = 'large', $alt = true, $altOverride = null, $caption = false, $class = null, $imageType = 'default')
     {
         $this->id = $id;
         $this->maxSize = $maxSize;
@@ -48,7 +48,9 @@ class BaseImage extends Component
 
         $this->caption = $this->getCaption($caption);
 
-        $this->alt = $this->getAlt($alt);
+        $this->alt = $alt && $altOverride
+            ? $altOverride
+            : $this->getAlt($alt);
 
         $this->class = $this->generateClasses($class);
     }
@@ -64,7 +66,7 @@ class BaseImage extends Component
             return '';
         }
 
-        return $this->view('BaseImage.resources.views.components.base-image');
+        return $this->view('Components.BaseImage.base-image');
     }
 
     /**
@@ -127,6 +129,7 @@ class BaseImage extends Component
     {
         $styles['default'] = $this->caption ? '' : 'c-base-image';
         $styles['imageType'] = $this->getImageTypeClass();
+        $styles['passed'] = $class;
 
         return implode(' ', $styles);
     }

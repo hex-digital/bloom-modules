@@ -1,25 +1,26 @@
 <?php
 
-namespace Bloom\Blocks\HeadingText;
+namespace Bloom\Blocks\FullWidthImage;
 
+use Bloom\Blocks\BaseImage\BaseImagePartial;
 use Log1x\AcfComposer\Block;
 use Log1x\AcfComposer\Builder;
 
-class HeadingText extends Block
+class FullWidthImage extends Block
 {
     /**
      * The block name.
      *
      * @var string
      */
-    public $name = 'Heading Text';
+    public $name = 'Full Width Image';
 
     /**
      * The block description.
      *
      * @var string
      */
-    public $description = 'A simple Heading Text block.';
+    public $description = 'A simple Full Width Image block.';
 
     /**
      * The block category.
@@ -123,17 +124,19 @@ class HeadingText extends Block
      *
      * @var array
      */
-    public $view = 'Blocks.HeadingText.heading-text';
+    public $view = 'Blocks.FullWidthImage.full-width-image';
 
     /**
      * Data to be passed to the block before rendering.
      */
     public function with(): array
     {
+        $fullWidthImage = get_field('image');
+
         return [
-            'canRenderBlock' => $this->canRenderBlock(get_field('heading')),
-            'heading' => get_field('heading'),
-            'text' => get_field('text'),
+            'canRenderBlock' => $this->canRenderBlock($fullWidthImage),
+            'fullWidthImage' => $fullWidthImage,
+            'alt' => get_field('alt'),
         ];
     }
 
@@ -142,21 +145,11 @@ class HeadingText extends Block
      */
     public function fields(): array
     {
-        $headingText = Builder::make('heading_text');
+        $fullWidthImage = Builder::make('full_width_image');
 
-        $headingText
-            ->addText('heading', [
-                'label' => 'Heading',
-                'instructions' => 'Add Heading text',
-            ]);
+        $fullWidthImage->addPartial(BaseImagePartial::class);
 
-        $headingText
-            ->addTextarea('text', [
-                'label' => 'Text',
-                'instructions' => 'Add paragraph text',
-            ]);
-
-        return $headingText->build();
+        return $fullWidthImage->build();
     }
 
     /**
@@ -164,9 +157,9 @@ class HeadingText extends Block
      *
      * @return string
      */
-    public function canRenderBlock($heading): bool|string
+    public function canRenderBlock($fullWidthImage): bool|string
     {
-        if ($heading) {
+        if ($fullWidthImage) {
             return true;
         }
 

@@ -1,25 +1,26 @@
 <?php
 
-namespace Bloom\Blocks\HeadingText;
+namespace Bloom\Blocks\Testimonial;
 
+use Bloom\Blocks\BaseImage\BaseImagePartial;
 use Log1x\AcfComposer\Block;
 use Log1x\AcfComposer\Builder;
 
-class HeadingText extends Block
+class Testimonial extends Block
 {
     /**
      * The block name.
      *
      * @var string
      */
-    public $name = 'Heading Text';
+    public $name = 'Testimonial';
 
     /**
      * The block description.
      *
      * @var string
      */
-    public $description = 'A simple Heading Text block.';
+    public $description = 'A simple Testimonial block.';
 
     /**
      * The block category.
@@ -123,17 +124,21 @@ class HeadingText extends Block
      *
      * @var array
      */
-    public $view = 'Blocks.HeadingText.heading-text';
+    public $view = 'Blocks.Testimonial.testimonial';
 
     /**
      * Data to be passed to the block before rendering.
      */
     public function with(): array
     {
+        //      dd(get_field('testimonial'));
         return [
-            'canRenderBlock' => $this->canRenderBlock(get_field('heading')),
-            'heading' => get_field('heading'),
-            'text' => get_field('text'),
+            'canRenderBlock' => $this->canRenderBlock(get_field('testimonial')),
+            'testimonial' => get_field('testimonial'),
+            'name' => get_field('name'),
+            'organisation' => get_field('organisation'),
+            'image' => get_field('image'),
+            'alt' => get_field('alt'),
         ];
     }
 
@@ -142,31 +147,36 @@ class HeadingText extends Block
      */
     public function fields(): array
     {
-        $headingText = Builder::make('heading_text');
+        $testimonial = Builder::make('testimonial');
 
-        $headingText
-            ->addText('heading', [
-                'label' => 'Heading',
-                'instructions' => 'Add Heading text',
+        $testimonial
+            ->addTextarea('testimonial', [
+                'label' => 'Testimonial',
+                'instructions' => 'Add testimonial here',
             ]);
 
-        $headingText
-            ->addTextarea('text', [
-                'label' => 'Text',
-                'instructions' => 'Add paragraph text',
+        $testimonial
+            ->addText('name', [
+                'label' => 'Full name',
             ]);
 
-        return $headingText->build();
+        $testimonial
+            ->addText('organisation', [
+                'label' => 'Organisation',
+            ]);
+
+        $testimonial
+            ->addPartial(BaseImagePartial::class);
+
+        return $testimonial->build();
     }
 
     /**
      * determines whether a block can be rendered or not
-     *
-     * @return string
      */
-    public function canRenderBlock($heading): bool|string
+    public function canRenderBlock($field): bool|string
     {
-        if ($heading) {
+        if ($field) {
             return true;
         }
 

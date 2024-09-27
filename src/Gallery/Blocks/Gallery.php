@@ -1,25 +1,27 @@
 <?php
 
-namespace Bloom\Blocks\HeadingText;
+namespace Bloom\Blocks\Gallery;
 
+use Bloom\Blocks\BaseImage\BaseImagePartial;
+use Bloom\Helpers\AcfHelper;
 use Log1x\AcfComposer\Block;
 use Log1x\AcfComposer\Builder;
 
-class HeadingText extends Block
+class Gallery extends Block
 {
     /**
      * The block name.
      *
      * @var string
      */
-    public $name = 'Heading Text';
+    public $name = 'Gallery';
 
     /**
      * The block description.
      *
      * @var string
      */
-    public $description = 'A simple Heading Text block.';
+    public $description = 'A simple Gallery block.';
 
     /**
      * The block category.
@@ -123,17 +125,18 @@ class HeadingText extends Block
      *
      * @var array
      */
-    public $view = 'Blocks.HeadingText.heading-text';
+    public $view = 'Blocks.Gallery.gallery';
 
     /**
      * Data to be passed to the block before rendering.
      */
     public function with(): array
     {
+        $imageGallery = get_field('image_gallery');
+
         return [
-            'canRenderBlock' => $this->canRenderBlock(get_field('heading')),
-            'heading' => get_field('heading'),
-            'text' => get_field('text'),
+            'canRenderBlock' => $this->canRenderBlock($imageGallery),
+            'imageGallery' => $imageGallery,
         ];
     }
 
@@ -142,21 +145,20 @@ class HeadingText extends Block
      */
     public function fields(): array
     {
-        $headingText = Builder::make('heading_text');
+        $gallery = Builder::make('gallery');
 
-        $headingText
-            ->addText('heading', [
-                'label' => 'Heading',
-                'instructions' => 'Add Heading text',
-            ]);
+        $gallery
+            ->addRepeater('image_gallery', [
+                'label' => 'Image Gallery',
+                'instructions' => 'Add images to gallery',
+                'button_label' => 'Add Image',
+                'min' => '1',
+                'max' => '4',
+                'layout' => 'block',
+            ])
+            ->addPartial(BaseImagePartial::class);
 
-        $headingText
-            ->addTextarea('text', [
-                'label' => 'Text',
-                'instructions' => 'Add paragraph text',
-            ]);
-
-        return $headingText->build();
+        return $gallery->build();
     }
 
     /**
@@ -164,20 +166,10 @@ class HeadingText extends Block
      *
      * @return string
      */
-    public function canRenderBlock($heading): bool|string
+    public function canRenderBlock(): bool|string
     {
-        if ($heading) {
-            return true;
-        }
-
-        return false;
-    }
-
-    /**
-     * Assets enqueued when rendering the block.
-     */
-    public function assets(array $block): void
-    {
-        //
+        return AcfHelper::allFieldData([
+            'image_gallery',
+        ]);
     }
 }

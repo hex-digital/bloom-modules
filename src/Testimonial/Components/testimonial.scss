@@ -1,0 +1,68 @@
+.c-testimonial {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+
+  @screen desk {
+    grid-template-columns: 78px auto;
+    gap: 24px;
+  }
+
+  &__quote-mark {
+    @include cover;
+    color: theme('colors.black');
+  }
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    @screen desk {
+      gap: 24px;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+
+    @screen desk {
+      gap: 24px;
+    }
+  }
+
+  &__image-outer {
+    display: flex;
+    align-items: center;
+    height: 48px;
+    width: 72px;
+    background-color: theme('colors.white');
+    border-radius: 6px;
+    border: 1px solid theme('colors.black');
+
+    @screen desk {
+      height: 72px;
+      width: 108px;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 3px;
+  }
+
+  &__meta {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    justify-content: center;
+  }
+
+  &__organisation {
+    color: theme('colors.black');
+  }
+}

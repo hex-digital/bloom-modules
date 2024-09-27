@@ -1,25 +1,26 @@
 <?php
 
-namespace Bloom\Blocks\HeadingText;
+namespace Bloom\Blocks\Hero;
 
+use Bloom\Helpers\AcfHelper;
 use Log1x\AcfComposer\Block;
 use Log1x\AcfComposer\Builder;
 
-class HeadingText extends Block
+class Hero extends Block
 {
     /**
      * The block name.
      *
      * @var string
      */
-    public $name = 'Heading Text';
+    public $name = 'Hero';
 
     /**
      * The block description.
      *
      * @var string
      */
-    public $description = 'A simple Heading Text block.';
+    public $description = 'A simple Hero block.';
 
     /**
      * The block category.
@@ -44,7 +45,7 @@ class HeadingText extends Block
      *
      * @var array
      */
-    public $keywords = [];
+    public $keywords = ['hero', 'video'];
 
     /**
      * The block post type allow list.
@@ -123,7 +124,7 @@ class HeadingText extends Block
      *
      * @var array
      */
-    public $view = 'Blocks.HeadingText.heading-text';
+    public $view = 'Blocks.Hero.hero';
 
     /**
      * Data to be passed to the block before rendering.
@@ -131,9 +132,20 @@ class HeadingText extends Block
     public function with(): array
     {
         return [
-            'canRenderBlock' => $this->canRenderBlock(get_field('heading')),
-            'heading' => get_field('heading'),
-            'text' => get_field('text'),
+            'canRenderBlock' => $this->canRenderBlock(['hero_image']),
+            'blockAnchor' => $this->getBlockAnchor(),
+            'image' => get_field('hero_image'),
+            'video' => htmlspecialchars(AcfHelper::acfOembedBackgroundWithOptions(get_field('hero_oembed'))),
+            'innerBlocksTemplate' => esc_attr(wp_json_encode([
+                ['acf/tag'],
+                ['core/heading', [
+                    'level' => 1,
+                    'placeholder' => 'Title Goes Here',
+                ]],
+                ['core/paragraph', [
+                    'placeholder' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sit.',
+                ]],
+            ])),
         ];
     }
 
@@ -142,21 +154,16 @@ class HeadingText extends Block
      */
     public function fields(): array
     {
-        $headingText = Builder::make('heading_text');
+        $hero = Builder::make('hero');
 
-        $headingText
-            ->addText('heading', [
-                'label' => 'Heading',
-                'instructions' => 'Add Heading text',
+        $hero
+            ->addImage('hero_image')
+            ->addOembed('hero_oembed', [
+                'label' => 'Video',
+                'instructions' => 'Add a video URL from YouTube or Vimeo',
             ]);
 
-        $headingText
-            ->addTextarea('text', [
-                'label' => 'Text',
-                'instructions' => 'Add paragraph text',
-            ]);
-
-        return $headingText->build();
+        return $hero->build();
     }
 
     /**
@@ -164,20 +171,21 @@ class HeadingText extends Block
      *
      * @return string
      */
-    public function canRenderBlock($heading): bool|string
+    public function canRenderBlock($field): bool|string
     {
-        if ($heading) {
-            return true;
-        }
-
-        return false;
+        return AcfHelper::allFieldData($field);
     }
 
     /**
-     * Assets enqueued when rendering the block.
+     * Return the Anchor
      */
-    public function assets(array $block): void
+    public function getBlockAnchor(): string
     {
-        //
+        $anchor = '';
+        if (isset($this->block->anchor)) {
+            $anchor = $this->block->anchor;
+        }
+
+        return $anchor;
     }
 }

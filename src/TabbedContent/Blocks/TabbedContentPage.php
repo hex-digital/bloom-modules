@@ -1,25 +1,26 @@
 <?php
 
-namespace Bloom\Blocks\HeadingText;
+namespace Bloom\Blocks\TabbedContent;
 
+use Bloom\Constants\PostType;
 use Log1x\AcfComposer\Block;
 use Log1x\AcfComposer\Builder;
 
-class HeadingText extends Block
+class TabbedContentPage extends Block
 {
     /**
      * The block name.
      *
      * @var string
      */
-    public $name = 'Heading Text';
+    public $name = 'Tabbed Content Page';
 
     /**
      * The block description.
      *
      * @var string
      */
-    public $description = 'A simple Heading Text block.';
+    public $description = 'A simple Tabbed Content Page block.';
 
     /**
      * The block category.
@@ -44,14 +45,14 @@ class HeadingText extends Block
      *
      * @var array
      */
-    public $keywords = [];
+    public $keywords = ['tabbed', 'content', 'page'];
 
     /**
      * The block post type allow list.
      *
      * @var array
      */
-    public $post_types = [];
+    public $post_types = [PostType::TABBED_CONTENT];
 
     /**
      * The parent block type allow list.
@@ -123,40 +124,39 @@ class HeadingText extends Block
      *
      * @var array
      */
-    public $view = 'Blocks.HeadingText.heading-text';
+    public $view = 'Blocks.TabbedContent.tabbed-content-page';
 
     /**
      * Data to be passed to the block before rendering.
+     *
+     * @return array
      */
-    public function with(): array
+    public function with()
     {
         return [
-            'canRenderBlock' => $this->canRenderBlock(get_field('heading')),
-            'heading' => get_field('heading'),
-            'text' => get_field('text'),
+            'canRenderBlock' => $this->canRenderBlock(get_field('nav_label')),
+            'blockClasses' => $this->getBlockClasses(),
+            'blockAnchor' => $this->getBlockAnchor(),
+            'navLabel' => str_replace(' ', '-', strtolower(get_field('nav_label'))),
         ];
     }
 
     /**
      * The block field group.
+     *
+     * @return array
      */
-    public function fields(): array
+    public function fields()
     {
-        $headingText = Builder::make('heading_text');
+        $tabbedContentPage = Builder::make('tabbed_content_page');
 
-        $headingText
-            ->addText('heading', [
-                'label' => 'Heading',
-                'instructions' => 'Add Heading text',
+        $tabbedContentPage
+            ->addText('nav_label', [
+                'label' => 'Navigation Label',
+                'instructions' => 'Label to appear within the left hand navigation for this page.',
             ]);
 
-        $headingText
-            ->addTextarea('text', [
-                'label' => 'Text',
-                'instructions' => 'Add paragraph text',
-            ]);
-
-        return $headingText->build();
+        return $tabbedContentPage->build();
     }
 
     /**
@@ -164,9 +164,9 @@ class HeadingText extends Block
      *
      * @return string
      */
-    public function canRenderBlock($heading): bool|string
+    public function canRenderBlock($field)
     {
-        if ($heading) {
+        if ($field) {
             return true;
         }
 
@@ -174,9 +174,36 @@ class HeadingText extends Block
     }
 
     /**
-     * Assets enqueued when rendering the block.
+     * Return the Anchor
+     *
+     * @return string
      */
-    public function assets(array $block): void
+    public function getBlockAnchor()
+    {
+        $anchor = '';
+        if (isset($this->block->anchor)) {
+            $anchor = $this->block->anchor;
+        }
+
+        return $anchor;
+    }
+
+    /**
+     * Return the classes added via CMS
+     *
+     * @return string
+     */
+    public function getBlockClasses()
+    {
+        return $this->classes;
+    }
+
+    /**
+     * Assets to be enqueued when rendering the block.
+     *
+     * @return void
+     */
+    public function enqueue()
     {
         //
     }

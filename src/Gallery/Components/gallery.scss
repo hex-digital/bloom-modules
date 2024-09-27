@@ -1,0 +1,26 @@
+.c-gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+
+  @screen desk {
+   flex-direction: row;
+   gap: 24px;
+  }
+
+  &__image {
+    flex: 1 1 0;
+
+    .c-base-image {
+      object-fit: cover;
+      height: 200px;
+      width: 100%;
+      border-radius: 12px;
+
+      @screen desk {
+       height: 420px;
+      }
+    }
+  }
+}
