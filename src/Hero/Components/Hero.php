@@ -12,16 +12,16 @@ class Hero extends Component
 
     public string $video;
 
-    public int $videoPoster;
+    public int $image;
 
     /**
      * Create a new component instance.
      */
-    public function __construct($anchor, $video, $poster)
+    public function __construct($anchor, $video, $image)
     {
         $this->blockAnchor = $anchor;
         $this->video = $video;
-        $this->videoPoster = $poster;
+        $this->image = $image;
     }
 
     /**
@@ -44,6 +44,6 @@ class Hero extends Component
     private function canOutputComponent(): array|string
     {
         // Check the required data exists
-        return $this->videoPoster;
+        return $this->image;
     }
 }

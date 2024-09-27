@@ -132,10 +132,10 @@ class Hero extends Block
     public function with(): array
     {
         return [
-            'canRenderBlock' => $this->canRenderBlock(['video_image']),
+            'canRenderBlock' => $this->canRenderBlock(['hero_image']),
             'blockAnchor' => $this->getBlockAnchor(),
-            'videoPoster' => get_field('video_image'),
-            'video' => htmlspecialchars(AcfHelper::acfOembedBackgroundWithOptions(get_field('video_oembed'))),
+            'image' => get_field('hero_image'),
+            'video' => htmlspecialchars(AcfHelper::acfOembedBackgroundWithOptions(get_field('hero_oembed'))),
             'innerBlocksTemplate' => esc_attr(wp_json_encode([
                 ['acf/tag'],
                 ['core/heading', [
@@ -157,8 +157,8 @@ class Hero extends Block
         $hero = Builder::make('hero');
 
         $hero
-            ->addImage('video_image')
-            ->addOembed('video_oembed', [
+            ->addImage('hero_image')
+            ->addOembed('hero_oembed', [
                 'label' => 'Video',
                 'instructions' => 'Add a video URL from YouTube or Vimeo',
             ]);

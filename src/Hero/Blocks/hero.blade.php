@@ -2,7 +2,7 @@
   <x-bloom-hero
     :anchor="$blockAnchor"
     :video="$video"
-    :poster="$videoPoster"
+    :image="$image"
   >
 
     <InnerBlocks

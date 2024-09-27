@@ -2,7 +2,7 @@
   @if($blockAnchor) id="{{ $blockAnchor }}" @endif
 class="c-hero" data-video="{!! $video !!}">
 
-  <x-bloom-base.image :id="$videoPoster" class="c-hero__poster"/>
+  <x-bloom-base.image :id="$image" class="c-hero__image"/>
 
   <div class="c-hero__embed">
   </div>

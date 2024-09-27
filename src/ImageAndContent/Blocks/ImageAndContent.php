@@ -157,9 +157,6 @@ class ImageAndContent extends Block
         $imageAndContent
             ->addButtonGroup('wrapper_size', [
                 'instructions' => 'Set a different size for the content wrapper',
-                'wrapper' => [
-                    'width' => '33%',
-                ],
             ])
             ->addChoice('sm', 'Small')
             ->addChoice('default', 'Default')
@@ -168,9 +165,6 @@ class ImageAndContent extends Block
         $imageAndContent
             ->addButtonGroup('vertical_alignment', [
                 'instructions' => 'Choose whether the content should align top, center or bottom',
-                'wrapper' => [
-                    'width' => '33%',
-                ],
             ])
             ->addChoice('top', 'Top')
             ->addChoice('center', 'Center')
@@ -180,9 +174,6 @@ class ImageAndContent extends Block
         $imageAndContent
             ->addButtonGroup('horizontal_alignment', [
                 'instructions' => 'Choose whether the content should align left, center or right',
-                'wrapper' => [
-                    'width' => '33%',
-                ],
             ])
             ->addChoice('left', 'Left')
             ->addChoice('center', 'Center')
