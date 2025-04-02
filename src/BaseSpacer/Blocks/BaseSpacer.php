@@ -130,7 +130,7 @@ class BaseSpacer extends Block
      *
      * @var array
      */
-    public $view = 'BaseSpacer.resources.views.blocks.base-spacer';
+    public $view = 'Blocks.BaseSpacer.base-spacer';
 
     /**
      * Data to be passed to the block before rendering.
