@@ -4,7 +4,7 @@
   gap: 16px;
   width: 100%;
 
-  @screen desk {
+  @media screen and (min-width: 75rem)  {
    flex-direction: row;
    gap: 24px;
   }
@@ -18,7 +18,7 @@
       width: 100%;
       border-radius: 12px;
 
-      @screen desk {
+      @media screen and (min-width: 75rem)  {
        height: 420px;
       }
     }

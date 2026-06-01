@@ -1,9 +1,0 @@
-.c-tag {
-  @include label;
-  color: theme('colors.black');
-
-  .c-hero & {
-    @include h4;
-    color: theme('colors.black');
-  }
-}

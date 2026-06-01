@@ -2,7 +2,7 @@
   text-align: center;
 
   a, button {
-    color: theme('colors.black');
+    color: var(--color-black, #000);
   }
 
   .nav-links {
@@ -19,7 +19,7 @@
       display: flex;
       justify-content: center;
 
-      @screen tablet-wide {
+      @media screen and (min-width: 56.25rem)  {
         width: 40px;
         height: 40px;
       }
@@ -42,7 +42,7 @@
     justify-content: center;
     cursor: pointer;
 
-    @screen tablet-wide {
+    @media screen and (min-width: 56.25rem)  {
       width: 40px;
       height: 40px;
     }

@@ -1,5 +1,5 @@
 .c-accordion {
-  border-bottom: 1px solid theme('colors.black');
+  border-bottom: 1px solid var(--color-black, #000);
   width: 100%;
 
   summary::-webkit-details-marker {
@@ -12,12 +12,12 @@
   cursor: pointer;
   display: flex;
   justify-content: space-between;
-  padding: theme('spacing.24') 0;
+  padding: 1.5rem 0;
   position: relative;
 }
 
 .c-accordion__content {
-  padding-bottom: theme('spacing.24');
+  padding-bottom: 1.5rem;
 }
 
 .c-accordion__title {

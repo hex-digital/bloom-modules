@@ -1,0 +1,9 @@
+.c-tag {
+  @include label;
+  color: var(--color-black, #000);
+
+  .c-hero & {
+    @include h4;
+    color: var(--color-black, #000);
+  }
+}

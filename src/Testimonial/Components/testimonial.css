@@ -3,14 +3,14 @@
   grid-template-columns: 1fr;
   gap: 16px;
 
-  @screen desk {
+  @media screen and (min-width: 75rem)  {
     grid-template-columns: 78px auto;
     gap: 24px;
   }
 
   &__quote-mark {
     @include cover;
-    color: theme('colors.black');
+    color: var(--color-black, #000);
   }
 
   &__inner {
@@ -18,7 +18,7 @@
     flex-direction: column;
     gap: 16px;
 
-    @screen desk {
+    @media screen and (min-width: 75rem)  {
       gap: 24px;
     }
   }
@@ -28,7 +28,7 @@
     flex-direction: row;
     gap: 16px;
 
-    @screen desk {
+    @media screen and (min-width: 75rem)  {
       gap: 24px;
     }
   }
@@ -38,11 +38,11 @@
     align-items: center;
     height: 48px;
     width: 72px;
-    background-color: theme('colors.white');
+    background-color: var(--color-white, #fff);
     border-radius: 6px;
-    border: 1px solid theme('colors.black');
+    border: 1px solid var(--color-black, #000);
 
-    @screen desk {
+    @media screen and (min-width: 75rem)  {
       height: 72px;
       width: 108px;
     }
@@ -63,6 +63,6 @@
   }
 
   &__organisation {
-    color: theme('colors.black');
+    color: var(--color-black, #000);
   }
 }

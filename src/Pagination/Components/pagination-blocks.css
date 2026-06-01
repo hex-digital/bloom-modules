@@ -3,8 +3,8 @@
 
   .current,
   .c-pagination__page--current {
-    background-color: theme('colors.grey');
-    color: theme('colors.black');
+    background-color: var(--color-grey, #808080);
+    color: var(--color-black, #000);
   }
 
   .c-pagination__page {
@@ -12,8 +12,8 @@
     &:hover,
     &:active,
     &:focus {
-      background-color: theme('colors.grey');
-      color: theme('colors.black');
+      background-color: var(--color-grey, #808080);
+      color: var(--color-black, #000);
     }
   }
 }

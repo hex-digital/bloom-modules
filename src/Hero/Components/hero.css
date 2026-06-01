@@ -1,17 +1,17 @@
 .c-hero {
   align-items: center;
-  color: theme('colors.white');
+  color: var(--color-white, #fff);
   display: flex;
-  gap: theme('spacing.12');
+  gap: 0.75rem;
   position: relative;
-  margin-top: calc((var(--headerHeight) + var(--headerMargin)) * -1);
+  margin-top: calc((var(--headerHeight, 80px) + var(--headerMargin, 1rem)) * -1);
   width: 100%;
   height: auto;
-  padding-top: calc(var(--headerHeight) + var(--headerMargin) + theme('spacing.72'));
-  padding-bottom: theme('spacing.96');
+  padding-top: calc(var(--headerHeight, 80px) + var(--headerMargin, 1rem) + 4rem);
+  padding-bottom: 6rem;
   overflow: hidden;
 
-  @screen desk {
+  @media screen and (min-width: 75rem)  {
     height: 800px;
     justify-content: center;
     padding: 0;
@@ -20,7 +20,7 @@
   .c-buttons--cluster {
     margin-top: 12px;
 
-    @screen desk {
+    @media screen and (min-width: 75rem)  {
       justify-content: center;
     }
   }
@@ -54,7 +54,7 @@
   &--visible {
     display: none;
 
-    @screen tablet-wide {
+    @media screen and (min-width: 56.25rem)  {
       display: block;
       transition-delay: 1s;
       opacity: 1;
@@ -80,7 +80,7 @@
   max-width: 1010px;
   position: relative;
 
-  @screen desk {
+  @media screen and (min-width: 75rem)  {
     text-align: center;
   }
 }
@@ -88,7 +88,7 @@
 .c-hero__innerblocks {
   display: flex;
   flex-direction: column;
-  gap: theme('spacing.12');
+  gap: 0.75rem;
 }
 
 .c-hero p {

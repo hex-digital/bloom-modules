@@ -6,7 +6,7 @@
   flex-wrap: wrap;
   width: 100%;
 
-  @screen desk {
+  @media screen and (min-width: 75rem)  {
     flex-direction: row;
     gap: 24px;
   }
@@ -15,14 +15,14 @@
 .c-stat {
   display: flex;
   flex-direction: column;
-  background-color: theme('colors.white');
+  background-color: var(--color-white, #fff);
   width: 100%;
   align-items: flex-start;
   padding: 32px 24px;
-  border: 1px solid theme('colors.black');
+  border: 1px solid var(--color-black, #000);
   border-radius: 12px;
 
-  @screen desk {
+  @media screen and (min-width: 75rem)  {
     max-width: 286px;
     align-items: center;
   }
@@ -38,7 +38,7 @@
 
 .c-stat__description {
   @include body-large;
-  color: theme('colors.black');
+  color: var(--color-black, #000);
 }
 
 

@@ -1,21 +1,21 @@
 :root {
   --tabbedBtnBackground: transparent;
   --tabbedBtnBackgroundActive: transparent;
-  --tabbedBtnColor: theme('colors.black');
-  --tabbedBtnColorActive: theme('colors.grey');
-  --tabbedBtnColorDesktop: theme('colors.black');
-  --tabbedBtnColorDesktopActive: theme('colors.grey');
+  --tabbedBtnColor: var(--color-black, #000);
+  --tabbedBtnColorActive: var(--color-grey, #808080);
+  --tabbedBtnColorDesktop: var(--color-black, #000);
+  --tabbedBtnColorDesktopActive: var(--color-grey, #808080);
 }
 
 .c-tabbed-content__wrapper {
   display: flex;
   flex-direction: column;
-  gap: theme('spacing.16');
+  gap: 1rem;
   overflow: hidden;
 
-  @screen tablet-wide {
+  @media screen and (min-width: 56.25rem)  {
     flex-direction: row;
-    gap: theme('spacing.24');
+    gap: 1.5rem;
   }
 
   & > {
@@ -31,7 +31,7 @@
   position: relative;
   width: 100%;
 
-  @screen tablet-wide {
+  @media screen and (min-width: 56.25rem)  {
     width: 25%;
     overflow: unset;
     padding-left: unset;
@@ -40,16 +40,16 @@
 
 .c-tabbed-content__nav-wrapper {
   display: flex;
-  gap: theme('spacing.16');
+  gap: 1rem;
   -webkit-overflow-scrolling: touch;
   overflow-x: auto;
   padding: 0 1rem;
 
-  @screen tablet-wide {
+  @media screen and (min-width: 56.25rem)  {
     flex-direction: column;
     gap: 20px;
     min-height: 440px;
-    padding: theme('spacing.32') theme('spacing.32') theme('spacing.32') 0;
+    padding: 2rem 2rem 2rem 0;
     align-items: flex-end;
     position: relative;
     width: 100%;
@@ -69,7 +69,7 @@
   position: relative;
   white-space: nowrap;
 
-  @screen tablet-wide {
+  @media screen and (min-width: 56.25rem)  {
     background-color: transparent;
     border-radius: unset;
     color: var(--tabbedBtnColorDesktop);
@@ -84,7 +84,7 @@
     color: var(--tabbedBtnColorActive);
     text-decoration: underline;
 
-    @screen tablet-wide {
+    @media screen and (min-width: 56.25rem)  {
       background-color: transparent;
       color: var(--tabbedBtnColorDesktopActive);
       text-decoration: unset;
@@ -98,7 +98,7 @@
   height: 20px;
   overflow: hidden;
 
-  @screen tablet-wide {
+  @media screen and (min-width: 56.25rem)  {
     display: block;
     position: relative;
     width: 0;
@@ -111,10 +111,10 @@
 }
 
 .c-tabbed-content__nav-heading {
-  color: theme('colors.grey');
+  color: var(--color-grey, #808080);
   text-align: center;
 
-  @screen tablet-wide {
+  @media screen and (min-width: 56.25rem)  {
     text-align: right;
   }
 }
@@ -124,26 +124,26 @@
   position: relative;
   width: 100%;
 
-  @screen tablet-wide {
+  @media screen and (min-width: 56.25rem)  {
     padding: 0;
     width: 75%;
   }
 }
 
 .c-tabbed-content__page {
-  background: theme('colors.white');
-  border: 1px solid theme('colors.grey');
-  border-radius: theme('spacing.12');
+  background: var(--color-white, #fff);
+  border: 1px solid var(--color-grey, #808080);
+  border-radius: 0.75rem;
   opacity: 0;
-  padding: theme('spacing.24');
+  padding: 1.5rem;
   @include transition((transform, opacity));
   position: absolute;
   top: 0;
   transform: translateX(100%);
   visibility: hidden;
 
-  @screen tablet-wide {
-    padding: theme('spacing.32');
+  @media screen and (min-width: 56.25rem)  {
+    padding: 2rem;
     height: 100%;
   }
 

@@ -3,7 +3,7 @@
   grid-template-columns: 1fr;
   gap: 16px;
 
-  @screen desk {
+  @media screen and (min-width: 75rem)  {
     grid-template-columns: 1fr 1fr;
     gap: 24px;
   }
@@ -11,6 +11,6 @@
   &__text {
     display: flex;
     align-items: flex-end;
-    color: theme('colors.black');
+    color: var(--color-black, #000);
   }
 }
