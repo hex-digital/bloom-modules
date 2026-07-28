@@ -27,7 +27,7 @@ class Header extends Composer
 
     protected function getMainMenu()
     {
-        $navigation = Navi::make()->build('primary');
+        $navigation = Navi::make()->build('primary_navigation');
 
         if ($navigation->isEmpty()) {
             return;
