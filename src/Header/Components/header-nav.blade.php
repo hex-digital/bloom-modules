@@ -1,5 +1,5 @@
 <nav class="c-header__nav" aria-label="Main navigation" role="navigation">
-  <div class="u-relative">
+  <div class="relative">
     @if($mainNav)
       <ul class="c-header__nav-items">
         @foreach($mainNav as $navItem)

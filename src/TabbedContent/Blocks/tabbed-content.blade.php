@@ -7,12 +7,12 @@
   >
     <div class="c-tabbed-content__wrapper o-wrapper__bleed tablet-wide:o-wrapper ">
       @if ($navHeading)
-        <h6 class="tablet-wide:u-hidden c-tabbed-content__nav-heading" aria-hidden="true">{{ $navHeading }}</h6>
+        <h6 class="tablet-wide:hidden c-tabbed-content__nav-heading" aria-hidden="true">{{ $navHeading }}</h6>
       @endif
       <div class="c-tabbed-content__nav">
         <div class="c-tabbed-content__nav-wrapper" role="tablist">
           @if ($navHeading)
-            <h6 class="u-hidden tablet-wide:u-block c-tabbed-content__nav-heading" aria-hidden="true">{{ $navHeading }}</h6>
+            <h6 class="hidden tablet-wide:block c-tabbed-content__nav-heading" aria-hidden="true">{{ $navHeading }}</h6>
           @endif
           @foreach($tabbedContent as $navItem)
             <button
@@ -28,7 +28,7 @@
               aria-controls="tabpanel-{{ $navItem['slug'] }}"
             >
               <span>{{ $navItem['label'] }}</span>
-              <x-icon-arrow class="u-rotate-90 c-tabbed-content__nav-btn__icon" />
+              <x-icon-arrow class="rotate-90 c-tabbed-content__nav-btn__icon" />
             </button>
             @endforeach
         </div>

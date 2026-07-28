@@ -48,9 +48,9 @@ class Buttons extends Component
     private function getAlignment($align)
     {
         $alignment = [
-            'left' => 'u-justify-start',
-            'center' => 'u-justify-center',
-            'right' => 'u-justify-end',
+            'left' => 'justify-start',
+            'center' => 'justify-center',
+            'right' => 'justify-end',
         ];
 
         if (! array_key_exists($align, $alignment)) {

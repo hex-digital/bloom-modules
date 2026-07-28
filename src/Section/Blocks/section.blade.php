@@ -4,6 +4,6 @@
   :wrapper-size="$wrapperSize"
 >
 
-  <InnerBlocks class="c-innerblocks u-items-start {!! $innerBlockClasses !!}" />
+  <InnerBlocks class="c-innerblocks items-start {!! $innerBlockClasses !!}" />
 
 </x-bloom-section>

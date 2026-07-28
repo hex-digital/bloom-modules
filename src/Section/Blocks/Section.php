@@ -212,19 +212,19 @@ class Section extends Block
         $classes = [];
 
         if ($valign === 'top') {
-            $classes[] = 'u-justify-start';
+            $classes[] = 'justify-start';
         } elseif ($valign === 'bottom') {
-            $classes[] = 'u-justify-end';
+            $classes[] = 'justify-end';
         } elseif ($valign === 'center') {
-            $classes[] = 'u-justify-center';
+            $classes[] = 'justify-center';
         }
 
         if ($halign === 'left') {
-            $classes[] = 'desk:u-items-start';
+            $classes[] = 'desk:items-start';
         } elseif ($halign === 'right') {
-            $classes[] = 'desk:u-items-end';
+            $classes[] = 'desk:items-end';
         } elseif ($halign === 'center') {
-            $classes[] = 'desk:u-items-center desk:u-text-center';
+            $classes[] = 'desk:items-center desk:text-center';
         }
 
         return implode(' ', $classes);

@@ -1,4 +1,4 @@
-<section {{ $attributes->merge(['class' => 'o-wrapper__bleed u-relative ' . $classes]) }}>
+<section {{ $attributes->merge(['class' => 'o-wrapper__bleed relative ' . $classes]) }}>
   @if($image)
     <div class="c-basic-hero__image">
       <x-bloom-base.image :id="$image" />
